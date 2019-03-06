@@ -8,17 +8,21 @@ public class Order {
     private int id;
     private List<OrderItem> items;
     private LocalDateTime date;
+    private TaxCalculator taxCalculator;
 
     public Order(int id) {
         this.id = id;
         this.items = new ArrayList<>();
         this.date = LocalDateTime.now();
+        this.taxCalculator = new TaxThailand();
     }
 
     public Order() {
-        this.id = 0;
-        this.items = new ArrayList<>();
-        this.date = LocalDateTime.now();
+        this(0);
+    }
+
+    public void setTaxCalculator(TaxCalculator taxCalculator) {
+        this.taxCalculator = taxCalculator;
     }
 
     public void addItem(Product prod, int quantity) {
@@ -30,7 +34,7 @@ public class Order {
         for (OrderItem item : items) {
             total += item.getSubtotal();
         }
-        return total;
+        return total + taxCalculator.calculateTax(total);
     }
 
 }
