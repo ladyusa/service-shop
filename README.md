@@ -20,8 +20,8 @@ __Possible calls:__
 	- http://localhost:8080/product/3
 
 2. POST order
-    - http://localhost:8080/order/{productId}/{quantity}
-    - http://localhost:8080/order/3/2
+    - http://localhost:8080/order/create/{productId}/{quantity}
+    - http://localhost:8080/order/create/3/2
 
 3. POST a product (create using json format)
 	- http://localhost:8080/product/create
