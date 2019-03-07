@@ -2,7 +2,7 @@
 
 __To run with IntelliJ:__
 
-⋅⋅* Click to run class 'ku.shop.ShopServiceApplication`
+  * Click to run class `ku.shop.ShopServiceApplication`
 
 __To compile and run with Maven:__
 
@@ -10,12 +10,12 @@ __To compile and run with Maven:__
 
 __To set tax calculator:__
 
-⋅⋅* Default uses Thailand tax rate. If you need to change,
+  * Default uses Thailand tax rate. If you need to change,
 set environment variable `TAX_CITY`. For example,
 
 ```TAX_CITY=Thailand```
 
-⋅⋅* You can choose tax cities among `Thailand`, `NY`, `CA`.
+  * You can choose tax cities among `Thailand`, `NY`, `CA`.
 Please see class `ku.shop.service.ServiceConfig` for tax city configuration.
 
 __Possible calls:__
