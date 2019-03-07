@@ -1,20 +1,22 @@
 # Shop Web Service Example
 
-__To run in IntelliJ:__
-Click to run class ShopServiceApplication
+__To run with IntelliJ:__
 
-__To compile and run:__
+⋅⋅* Click to run class 'ku.shop.ShopServiceApplication`
+
+__To compile and run with Maven:__
 
 ```$ mvn spring-boot:run```
 
 __To set tax calculator:__
-Default uses Thailand tax rate. If you need to change,
+
+⋅⋅* Default uses Thailand tax rate. If you need to change,
 set environment variable `TAX_CITY`. For example,
 
 ```TAX_CITY=Thailand```
 
-You can choose tax cities among `Thailand`, `NY`, `CA`.
-Please see class `ku.service.ServiceConfig` for tax city configuration.
+⋅⋅* You can choose tax cities among `Thailand`, `NY`, `CA`.
+Please see class `ku.shop.service.ServiceConfig` for tax city configuration.
 
 __Possible calls:__
 
