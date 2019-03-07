@@ -4,7 +4,9 @@ import ku.shop.db.ProductDAO;
 import ku.shop.model.Order;
 import ku.shop.model.Product;
 import ku.shop.model.ProductCatalog;
+import ku.shop.model.TaxCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class ProductResource {
 
     @Autowired
     private ProductDAO productReposity;
+
+    @Autowired
+    private TaxCalculator taxCalculator;
 
     @GetMapping("/product/all")
     public ResponseEntity<List<Product>> getAll() {
@@ -40,7 +45,9 @@ public class ProductResource {
 
     @PostMapping("/order/create/{pid}/{quantity}")
     public ResponseEntity<Double> createOrder(@PathVariable int pid, @PathVariable int quantity) {
+
         Order order = new Order();
+        order.setTaxCalculator(taxCalculator);
         Product product = productReposity.getOne(pid);
         if (product == null) {
             return new ResponseEntity<Double>(HttpStatus.NOT_FOUND);

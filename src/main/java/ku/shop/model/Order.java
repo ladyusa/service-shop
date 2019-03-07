@@ -14,7 +14,6 @@ public class Order {
         this.id = id;
         this.items = new ArrayList<>();
         this.date = LocalDateTime.now();
-        this.taxCalculator = new TaxThailand();
     }
 
     public Order() {
@@ -34,6 +33,8 @@ public class Order {
         for (OrderItem item : items) {
             total += item.getSubtotal();
         }
+        if (taxCalculator == null)
+            return total;
         return total + taxCalculator.calculateTax(total);
     }
 
