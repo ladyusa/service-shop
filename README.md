@@ -8,6 +8,16 @@ __To compile and run:__
 
 $ mvn spring-boot:run
 
+__To set tax calculator:__
+
+Default uses Thailand tax rate. If you need to change, set environment variable:
+
+TAX_CITY=Thailand
+
+You can choose tax cities among {Thailand, NY, CA}
+
+Please see class ku.service.ServiceConfig. 
+
 __Possible calls:__
 
 1. GET all products
