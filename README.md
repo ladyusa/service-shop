@@ -1,16 +1,12 @@
 # Shop Web Service Example
 
-__To run in IntelliJ:__
-
-Click to run class ShopServiceApplication
+__To run in IntelliJ:__ Click to run class ShopServiceApplication
 
 __To compile and run:__
 
-$ mvn spring-boot:run
+```$ mvn spring-boot:run```
 
-__To set tax calculator:__
-
-Default uses Thailand tax rate. If you need to change,
+__To set tax calculator:__ Default uses Thailand tax rate. If you need to change,
 set environment variable `TAX_CITY`. For example,
 
 ```TAX_CITY=Thailand```
