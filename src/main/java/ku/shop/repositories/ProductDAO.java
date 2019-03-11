@@ -1,12 +1,17 @@
-package ku.shop.db;
+package ku.shop.repositories;
 
 import ku.shop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,11 +24,24 @@ public class ProductDAO implements IEntityDAO<Product> {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void insert(Product product) {
-        String query = "insert into Product (id, name, price) values (?, ?, ?);";
-        Object[] data = new Object[]
-                {product.getId(), product.getName(), product.getPrice() };
-        jdbcTemplate.update(query, data);
+    public Product insert(Product product) {
+
+        final String INSERT_SQL = "insert into Product (name, price) values (?, ?);";
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        jdbcTemplate.update(
+                new PreparedStatementCreator() {
+                    public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+                        PreparedStatement ps =
+                                connection.prepareStatement(INSERT_SQL, new String[] {"id"});
+                        ps.setString(1, product.getName());
+                        ps.setDouble(2, product.getPrice());
+                        return ps;
+                    }
+                },
+                keyHolder);
+        product.setId(keyHolder.getKey().intValue());
+        return product;
     }
 
     @Override

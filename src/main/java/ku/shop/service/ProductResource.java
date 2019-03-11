@@ -1,12 +1,10 @@
 package ku.shop.service;
 
-import ku.shop.db.ProductDAO;
+import ku.shop.repositories.ProductDAO;
 import ku.shop.model.Order;
 import ku.shop.model.Product;
-import ku.shop.model.ProductCatalog;
 import ku.shop.model.TaxCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

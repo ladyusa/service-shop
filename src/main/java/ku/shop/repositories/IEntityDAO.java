@@ -1,9 +1,9 @@
-package ku.shop.db;
+package ku.shop.repositories;
 
 import java.util.List;
 
 public interface IEntityDAO<E> {
-    void insert(E entity);
+    E insert(E entity);
     E getOne(int id);
     List<E> getAll();
 }

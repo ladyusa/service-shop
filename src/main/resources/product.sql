@@ -1,12 +1,11 @@
 BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `Product` (
-	`id`	INTEGER,
-	`name`	TEXT,
-	`price`	NUMERIC,
-	PRIMARY KEY(`id`)
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`price`	NUMERIC NOT NULL
 );
-INSERT INTO `Product` (id,name,price) VALUES (1,'Bread',20.5);
-INSERT INTO `Product` (id,name,price) VALUES (2,'Jam',80);
-INSERT INTO `Product` (id,name,price) VALUES (3,'Butter',100);
-INSERT INTO `Product` (id,name,price) VALUES (4,'Cheese',120);
+INSERT INTO `Product` (name,price) VALUES ('Bread',20.5);
+INSERT INTO `Product` (name,price) VALUES ('Jam',80);
+INSERT INTO `Product` (name,price) VALUES ('Butter',100);
+INSERT INTO `Product` (name,price) VALUES ('Cheese',120);
 COMMIT;

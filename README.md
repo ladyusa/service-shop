@@ -37,7 +37,6 @@ __Possible calls:__
 	- http://localhost:8080/product/create
 
 {
-    "id": 5,
     "name": "Ham",
     "price": 60
 }
